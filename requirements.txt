@@ -1,0 +1,17 @@
+asgiref==3.5.2
+certifi==2022.9.14
+charset-normalizer==2.1.1
+Django==4.1.1
+django-mailchimp==0.1.30
+idna==3.4
+mailchimp-marketing==3.0.75
+PyJWT==2.4.0
+python-dateutil==2.8.2
+python-dotenv==0.21.0
+python-http-client==3.3.7
+pytz==2022.2.1
+requests==2.28.1
+six==1.16.0
+sqlparse==0.4.2
+starkbank-ecdsa==2.0.3
+urllib3==1.26.12
