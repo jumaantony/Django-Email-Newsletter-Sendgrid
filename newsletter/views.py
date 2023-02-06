@@ -19,6 +19,7 @@ mailchimp.set_config({
 })
 
 
+# view used to check if there is successful connection between mailchimp and the app
 def mailchimp_ping_view(request):
     response = mailchimp.ping.get()
     return JsonResponse(response)
@@ -30,6 +31,8 @@ def subscribe_view(request):
         if form.is_valid():
             try:
                 form_email = form.cleaned_data['email']
+
+                # member info contains the user information that will be stored in mailchimp
                 member_info = {
                     'email_address': form_email,
                     'status': 'subscribed',
@@ -69,7 +72,11 @@ def unsubscribe_view(request):
         if form.is_valid():
             try:
                 form_email = form.cleaned_data['email']
+                # hashing the user's email using md5 to generate a subscriber hash will allow to manipulate the
+                # user's data
                 form_email_hash = hashlib.md5(form_email.encode('utf-8').lower()).hexdigest()
+
+                # member_update used to change the user data
                 member_update = {
                     'status': 'unsubscribed',
                 }
